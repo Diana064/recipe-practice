@@ -1,14 +1,22 @@
 import PropTypes from 'prop-types';
-import { InfoWrapper } from './RecipeInfo.styled';
-export const RecipeInfo = ({ icon: Icon, text }) => {
+import { Wrapper, InfoBlock } from './RecipeInfo.styled';
+import { BsAlarm } from 'react-icons/bs';
+import { HiOutlineChartPie, HiOutlineChartBar } from 'react-icons/hi';
+export const RecipeInfo = ({ servings, time, calories }) => {
   return (
-    <InfoWrapper>
-      <Icon size={24} />
-      {text}
-    </InfoWrapper>
+    <Wrapper>
+      <InfoBlock>
+        <BsAlarm />
+        {time} mins
+      </InfoBlock>
+      <InfoBlock>
+        <HiOutlineChartPie />
+        {servings} servings
+      </InfoBlock>
+      <InfoBlock>
+        <HiOutlineChartBar />
+        {calories} calories
+      </InfoBlock>
+    </Wrapper>
   );
-};
-RecipeInfo.propTypes = {
-  icon: PropTypes.elementType.isRequired,
-  text: PropTypes.string.isRequired,
 };

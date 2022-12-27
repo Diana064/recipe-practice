@@ -1,28 +1,42 @@
 import PropTypes from 'prop-types';
-import { HiOutlineChartBar, HiOutlineChartPie } from 'react-icons/hi';
-import { BsAlarm } from 'react-icons/bs';
-import { InfoContainer, RecipeName } from './Recipe.styled';
+import { Component } from 'react';
+import { InfoContainer, RecipeName, Image } from './Recipe.styled';
 import { RecipeInfo } from '../RecipeInfo/RecipeInfo';
 import { Box } from 'components/Box';
 import { RecipeDifficulty } from 'components/RecipeDifficulty/RecipeDifficulty';
 
-export const Recipe = ({
-  recipe: { name, time, servings, calories, image, difficulty },
-}) => {
-  // const { name, time, servings, calories, image } = recipe;
-  return (
-    <Box p={3}>
-      <RecipeName>{name}</RecipeName>
-      <InfoContainer>
-        <RecipeInfo text={`${time} min`} icon={BsAlarm} />
-        <RecipeInfo text={`${servings} servings`} icon={HiOutlineChartPie} />
-        <RecipeInfo text={`${calories} calories`} icon={HiOutlineChartBar} />
-      </InfoContainer>
-      <RecipeDifficulty difficulty={difficulty} />
-    </Box>
-  );
-};
+export class Recipe extends Component {
+  state = {
+    isOpen: false,
+  };
+  toggle = () =>
+    this.setState(prevState => ({
+      isOpen: !prevState.isOpen,
+    }));
+  render() {
+    const {
+      recipe: { name, time, servings, calories, image, difficulty },
+    } = this.props;
+    const { isOpen } = this.state;
 
+    return (
+      <Box p={3} width="400px">
+        <Image src={image} alt={name} onClick={this.toggle} />
+        <RecipeName>{name}</RecipeName>
+        {isOpen && (
+          <>
+            <InfoContainer>
+              <RecipeInfo servings={servings} time={time} calories={calories} />
+            </InfoContainer>
+            <RecipeDifficulty difficulty={difficulty} />
+          </>
+        )}
+      </Box>
+    );
+  }
+}
+//   recipe: { name, time, servings, calories, image, difficulty },
+// }) =>
 Recipe.propTypes = {
   recipe: PropTypes.exact({
     name: PropTypes.string.isRequired,

@@ -13,3 +13,9 @@ export const RecipeName = styled.h2`
   font-size: ${p => p.theme.fontSizes.l};
   margin-bottom: ${p => p.theme.space[4]}px;
 `;
+export const Image = styled.img`
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+`;
