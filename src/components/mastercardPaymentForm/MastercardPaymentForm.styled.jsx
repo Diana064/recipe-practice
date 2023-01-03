@@ -1,38 +1,18 @@
-import { Formik } from 'formik';
-import { FormField } from 'components/formField/FormField';
-import { paymentScheme } from 'components/validation';
-const initialValues = { cardHolder: '', cardNumber: '', cvv: '' };
+import {
+  Form as FormikForm,
 
-export const MastercardPaymentForm = () => {
-  const handleSubmit = (values, actions) => {
-    console.log(values);
-    setTimeout(() => actions.setSubmitting(false), 1000);
-  };
+  //   Formik as FormikForm,
 
-  return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={paymentScheme}
-    >
-      {({ isSubmitting }) => {
-        console.log(isSubmitting);
-        return (
-          <Form>
-            <FormField label="Card holder" name="cardHolder" />
-            <br />
+  //   ErrorMessage as FormikForm,
+} from 'formik';
+import styled from 'styled-components';
 
-            <FormField label="Card number" name="cardNumber" />
-            <br />
-
-            <FormField label="CVV" name="cvv" />
-            <br />
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Trying to pay' : 'Pay'}
-            </button>
-          </Form>
-        );
-      }}
-    </Formik>
-  );
-};
+export const Form = styled(FormikForm)`
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+  padding: 30px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+`;

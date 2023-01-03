@@ -21,19 +21,22 @@ export const VisaPaymentForm = () => {
       {({ isSubmitting }) => {
         console.log(isSubmitting);
         return (
-          <Form>
-            <FormField label="Card holder" name="cardHolder" />
-            <br />
+          <>
+            <h2>VisaPaymentForm</h2>
+            <Form>
+              <FormField label="Card holder" name="cardHolder" />
+              <br />
 
-            <FormField label="Card number" name="cardNumber" />
-            <br />
+              <FormField label="Card number" name="cardNumber" />
+              <br />
 
-            <FormField label="CVV" name="cvv" />
-            <br />
-            <button type="submit" disabled={isSubmitting}>
-              {isSubmitting ? 'Trying to pay' : 'Pay'}
-            </button>
-          </Form>
+              <FormField label="CVV" name="cvv" />
+              <br />
+              <button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? 'Trying to pay' : 'Pay'}
+              </button>
+            </Form>
+          </>
         );
       }}
     </Formik>
