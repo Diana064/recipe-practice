@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/recipe-practice/static/css/main.7acaea2f.css",
-    "main.js": "/recipe-practice/static/js/main.5a212ddf.js",
+    "main.js": "/recipe-practice/static/js/main.c8f01067.js",
     "index.html": "/recipe-practice/index.html",
     "main.7acaea2f.css.map": "/recipe-practice/static/css/main.7acaea2f.css.map",
-    "main.5a212ddf.js.map": "/recipe-practice/static/js/main.5a212ddf.js.map"
+    "main.c8f01067.js.map": "/recipe-practice/static/js/main.c8f01067.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.5a212ddf.js"
+    "static/js/main.c8f01067.js"
   ]
 }
