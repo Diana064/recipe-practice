@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Container } from './PaymentWidget.styled';
 import { methods } from 'components/constants';
 import { PaymentMethods } from 'components/paymentMethods/PaymentMethods';
+import { VisaPaymentForm } from 'components/visaPaymentForm/VisaPaymentForm';
 
 export class PaymentWidget extends Component {
   state = {
@@ -22,7 +23,7 @@ export class PaymentWidget extends Component {
           onSelect={this.selectedPaymentMethod}
         />
         {selectedMethod === mastercard && <div>Mastercard Form</div>}
-        {selectedMethod === visa && <div>Vosa Form</div>}
+        {selectedMethod === visa && <VisaPaymentForm />}
         {selectedMethod === applePay && <div>Apple Pay Form</div>}
       </Container>
     );
